@@ -1,0 +1,59 @@
+#summary Check names and descriptions
+
+=Check Names & Descriptions=
+
+===connect===
+  * DESCRIPTION: Checks connectivity to the target database server. Returns CRITICAL if not able to connect, OK otherwise.
+  * PERMISSIONS: USAGE
+  * `--args` => ignored
+  * `--warning` => ignored
+  * `--critical` => ignored
+
+===repl_io===
+  * DESCRIPTION: Checks whether on not the IO Replication thread is running. Returns CRITICAL if not running, OK otherwise.
+  * PERMISSIONS: REPLICATION CLIENT
+  * `--args` => ignored
+  * `--warning` => ignored
+  * `--critical` => ignored
+
+===repl_sql===
+  * DESCRIPTION: Check to see whether or not the SQL Replication thread is running. Returns CRITICAL if not running, OK otherwise.
+  * PERMISSIONS: REPLICATION CLIENT
+  * `--args` => ignored
+  * `--warning` => ignored
+  * `--critical` => ignored
+
+===repl_sbm===
+  * DESCRIPTION: Check how many seconds behind the master the slave is.
+  * PERMISSIONS: REPLICATION CLIENT
+  * `--args` => ignored
+  * `--warning` => default 30 seconds
+  * `--critical` => default 60 seconds
+
+===repl_all===
+  * DESCRIPTION: Combine repl_io, repl_sql, and repl_sbm checks into one. Returns CRITICAL on failure of IO or SQL threads or if seconds behind master is greater than the limit. Returns WARNING only if seconds behind master is greater than the limit.
+  * PERMISSIONS: REPLICATION CLIENT
+  * `--args` => ignored
+  * `--warning` => default 30 seconds
+  * `--critical` => default 60 seconds
+
+===mysql_query===
+  * DESCRIPTION: Run a given query, test if it executes properly. Returns CRITICAL if the query fails to execute for whatever reason, OK otherwise.
+  * PERMISSIONS: depends on the query
+  * `--args` => no default, specify query with `query=...` and optionally query timeout with `query_timeout=...`
+  * `--warning` => ignored
+  * `--critical` => ignored
+
+===connections===
+  * DESCRIPTION: Test if the percentage of used connections is over a given threshold.
+  * PERMISSIONS: PROCESS
+  * `--args` => ignored
+  * `--warning` => default 80%
+  * `--critical` => default 90%
+
+===table_status===
+  * DESCRIPTION: Test all tables in a given database for errors, or all tables in all databases if --database is not given.
+  * PERMISSIONS: SELECT
+  * `--args` => ignored
+  * `--warning` => ignored
+  * `--critical` => ignored
