@@ -1,0 +1,18 @@
+#summary Some quick examples
+
+=Examples=
+
+These are for demonstration purposes only. Please read the documentation for more detail:
+
+{{{
+perldoc check_mysql_all
+}}}
+
+==Check Query Execution Time==
+
+{{{
+# Executes the target query, raising a critical alarm if it takes > 1 second to execute
+check_mysql mysql_query 
+    --args='query=SELECT COUNT(*) FROM test.t1' 
+    --args='query_timeout=1'
+}}}
