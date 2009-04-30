@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Man page for check_mysql_all
 
 {{{
 NAME
