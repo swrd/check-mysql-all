@@ -1,0 +1,23 @@
+{{{
+Usage:
+     check_mmm --cluster C# 
+
+     Options:
+       --cluster=<cluster_id>    The MMM Cluster to check
+       -c, --critical=<limit>    The level at which a critical alarm is raised.
+       -h, --help                Display this message and exit
+       -v, --verbose             Increase verbosity level
+       -V, --version             Display version information and exit
+       -w, --warning             The level at which a warning is raised.
+
+     Defaults are:
+
+     ATTRIBUTE                  VALUE
+     -------------------------- ------------------
+     cluster                    No default value
+     critical                   HARD_OFFLINE,REPLICATION_FAIL
+     help                       FALSE
+     verbose                    1 (out of 3)
+     version                    FALSE
+     warning                    ADMIN_OFFLINE,AWAITING_RECOVERY,REPLICATION_DELAY
+}}}
